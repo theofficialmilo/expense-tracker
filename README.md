@@ -5,7 +5,7 @@ This is a basic Expense Tracker
 ## Installation Guide
 1) Clone the Repo and open folder
 ```
-$ git clone https://github.com/theofficialmilo/typoway-app.git
+$ git clone https://github.com/theofficialmilo/expense-tracker
 $ cd expense-tracker
 ```
 2) Install Dependencies 
