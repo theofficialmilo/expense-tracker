@@ -1,14 +1,20 @@
 import React, { useState ,useEffect } from 'react'
-
+//Import Data processing library
 import _ from "lodash";
-
+//Import UI & Data Visualization Components
 import {Card, CardHeader, CardContent, Typography, makeStyles} from '@material-ui/core'
 import {ResponsiveContainer, BarChart, XAxis, YAxis, Tooltip, Bar, Cell} from 'recharts'
-
+//Import utils functions
 import {getMonthString} from '../utils/dataConfig'
-
+//Import Types
 import {IExpense} from '../typing/expenseType'
 
+//Define Prop Types
+interface IProps{
+  data: Array<IExpense>
+}
+
+//Component Stylings
 const useStyles = makeStyles(theme=>({
   root: {
     marginBottom:  theme.spacing(2) 
@@ -21,12 +27,11 @@ const useStyles = makeStyles(theme=>({
   },
   cardContent: {
     minHeight: 300
+  },
+  xAxisLabel: {
+
   }
 }))
-
-interface IProps{
-  data: Array<IExpense>
-}
 
 const OverviewCard:React.FC<IProps> = ({data}: IProps) => {
   const classes = useStyles();
@@ -36,9 +41,7 @@ const OverviewCard:React.FC<IProps> = ({data}: IProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const activeItem = overviewData[selectedIndex];
-
-  console.log(data)
-
+  // UseEffect for mutating data to fit bar graph & selecting latest month
   useEffect(() => {
     const customData = 
       _(data)
@@ -51,9 +54,9 @@ const OverviewCard:React.FC<IProps> = ({data}: IProps) => {
 
     setSelectedIndex(customData.length-1)
 
-    customData.map((objs: any, key:any) => {
+    customData.map((objs: any, key:any) => 
       objs.dateMonth = getMonthString(objs.dateMonth)
-    })
+    )
 
     setOverViewData(customData);
     setIsLoading(false)
@@ -76,7 +79,7 @@ const OverviewCard:React.FC<IProps> = ({data}: IProps) => {
           <BarChart data={overviewData}  margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
             <YAxis />
             <Tooltip />
-            <XAxis dataKey='dateMonth' />
+            <XAxis dataKey='dateMonth' className={classes.xAxisLabel}/>
             <Bar dataKey='amount' onClick={handleOnClick}>
               {overviewData.map((expense: IExpense, index: number)=> (
                 <Cell cursor="pointer" fill={index === selectedIndex ? '#1989fa' : '#737373'} key={`cell-${index}`} />

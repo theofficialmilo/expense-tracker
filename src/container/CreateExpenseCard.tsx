@@ -65,7 +65,7 @@ const CreateExpenseCard:React.FC<IProps> = ({handleOnClose}: IProps) => {
   const handleFormOnChange = (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     e.preventDefault();
     const { name, value } = e.target;
-    name == 'name' && value === '' ? 
+    name === 'name' && value === '' ? 
       setIsError((prevState: any) => ({...prevState, name: true})): 
       setIsError((prevState: any) => ({...prevState, name: false}))
 

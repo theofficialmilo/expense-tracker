@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useSelector, useDispatch, shallowEqual} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 //Import UI Compoenents & Icons
 import {Grid, Paper, Fab, makeStyles} from '@material-ui/core'
 import {Add} from '@material-ui/icons'
@@ -47,8 +47,8 @@ const Home: React.FC = () => {
 
   //UseEffect for getting user data and storing as a constant
   useEffect(() => {
-    dispatch(getUser())
-  }, [])
+    dispatch(getUser());
+  }, []);
   const user = useSelector((state: RootState) => state.user)
 
   //UseEffect for registering form and importing fake data for the first time
