@@ -1,6 +1,6 @@
 # Expense Tracker
 
-This is a basic Expense Tracker created for one of my job interview assignment
+This is a basic Expense Tracker created for one of my job interview assignment.\
 This is done in a 1 week timeframe
 
 ## Installation Guide
