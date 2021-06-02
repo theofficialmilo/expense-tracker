@@ -1,6 +1,7 @@
 # Expense Tracker
 
-This is a basic Expense Tracker 
+This is a basic Expense Tracker created for one of my job interview assignment.\
+This is done in a 1 week timeframe
 
 ## Installation Guide
 1) Clone the Repo and open folder
