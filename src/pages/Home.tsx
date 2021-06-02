@@ -48,7 +48,7 @@ const Home: React.FC = () => {
   //UseEffect for getting user data and storing as a constant
   useEffect(() => {
     dispatch(getUser());
-  }, []);
+  }, [dispatch]);
   const user = useSelector((state: RootState) => state.user)
 
   //UseEffect for registering form and importing fake data for the first time
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
       setShowRegisterForm(false)
       setIsLoading(false)
     }    
-  }, [showRegisterForm])
+  }, [showRegisterForm, dispatch, user])
 
   const expenseData = useSelector((state: RootState) => 
     state.expense.expenseList.sort((a: IExpense, b: IExpense) => {
