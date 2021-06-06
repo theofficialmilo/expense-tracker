@@ -1,7 +1,9 @@
 # Expense Tracker
 
 This is a basic Expense Tracker created for one of my job interview assignment.\
-This is done in a 1 week timeframe
+This is done in a 1 week timeframe.\
+A live version of this app can be found below:\
+https://priceless-mclean-cd52e4.netlify.app/
 
 ## Installation Guide
 1) Clone the Repo and open folder
